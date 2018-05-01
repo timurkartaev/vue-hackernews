@@ -1,10 +1,18 @@
 <template>
-    <li>{{ title }}</li>
+    <li @click="postClick(link)">
+        <slot name="number"></slot>
+        <slot name="title"></slot>
+    </li>
 </template>
 
 
 <script>
     export default {
-        props: ['title']
+        props: ['link'],
+        methods: {
+            postClick(link) {
+                window.location.href = link;
+            }
+        }
     }
 </script>

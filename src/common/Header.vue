@@ -14,9 +14,6 @@
 
         <div id="navbarText" class="collapse navbar-collapse justify-content-stretch">
             <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <router-link class="nav-link" to="/jobs">jobs</router-link>
-                </li>
                 <li class="nav-item">
                     <router-link class="nav-link" to="/post-form">submit</router-link>
                 </li>
@@ -24,7 +21,7 @@
 
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a href="#" class="nav-link">login</a>
+                    <router-link class="nav-link" to="/log-in">login</router-link>
                 </li>
             </ul>
             

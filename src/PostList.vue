@@ -2,8 +2,15 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <ul>
-                    <app-post v-for="post in posts" :title="title"></app-post>
+                <ul class="list-unstyled">
+                    <app-post v-for="(post, index) in posts" :link="post.link">
+                        <template slot="number">
+                            {{ index +1 }}
+                        </template>
+                        <template slot="title">
+                            {{ post.title }}
+                        </template>
+                    </app-post>
                 </ul>
             </div>
         </div>
@@ -20,6 +27,7 @@
                     {
                         title: 'Medium tries to prevent people reading deleted articles on the Wayback Machine',
                         points: 151,
+                        link: 'https://google.com',
                         author: 'scandox',
                         comments: 76,
                     },
@@ -27,6 +35,7 @@
                     {
                         title: 'You know how HTTP GET requests are meant to be idempotent?',
                         points: 151,
+                        link: 'https://google.com',
                         author: 'scandox',
                         comments: 76
                     }
