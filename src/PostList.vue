@@ -4,14 +4,18 @@
             <div class="col">
                 <ul class="list-unstyled">
                     <app-post v-for="(post, index) in posts" :link="post.link" :key="post.id">
-                        <template slot="number">
-                            <span class="number">{{ index +1 }}.</span>
-                        </template>
-                        <template slot="title">
-                            <a class="title" :href="post.link">{{ post.title }}</a> <span class="link">{{ post.link }}</span>
-                        </template>
-                        <template slot="details">
-                            <p class="details">{{ post.points }} points by {{ post.author }} | {{ post.comments }} comments</p>
+                        <template slot="post">
+                            <div class="d-flex mb-2">
+                                <div class="p-2">
+                                    <span class="number">{{ index +1 }}. &#9650;</span>
+                                </div>
+                                
+                                <div class="p-2">
+                                    <a class="title" :href="post.link">
+                                        {{ post.title }} <span class="link">{{ post.link }}</span>
+                                    </a> 
+                                    <p class="details">{{ post.points }} points by {{ post.author }} | {{ post.comments }} comments</p></span></div>
+                            </div>
                         </template>
                     </app-post>
                 </ul>

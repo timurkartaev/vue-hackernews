@@ -1,8 +1,6 @@
 <template>
     <li @click="postClick(link)">
-        <slot name="number"></slot> <span class="upvote">&#9650;</span>
-        <slot name="title"></slot>
-        <slot name="details"></slot>
+        <slot name="post"></slot>
     </li>
 </template>
 
