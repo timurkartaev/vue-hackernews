@@ -14,7 +14,7 @@
                                     <a class="title" :href="post.url">
                                         {{ post.title }} <span class="link">({{ post.url }})</span>
                                     </a> 
-                                    <p class="details">{{ post.points }} points by {{ post.author }} | {{ post.comments }} comments</p></span></div>
+                                    <p class="details">{{ post.points }} points by {{ post.author }} | {{ post.num_comments }} comments</p></span></div>
                             </div>
                         </template>
                     </app-post>
@@ -50,11 +50,9 @@
                       .then(json_data => {
                           for( let item in json_data['hits']) {
                             if ( json_data['hits'][item]['title']) {
-                                console.log(json_data['hits'][item]);
                                 this.posts.push(json_data['hits'][item]);
                             }
                           }
-                          console.log(this.posts);
                       });
         }
     }

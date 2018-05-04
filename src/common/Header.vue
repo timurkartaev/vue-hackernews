@@ -23,6 +23,9 @@
 
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
+                        <router-link class="nav-link" to="/register">register</router-link>
+                    </li>
+                    <li class="nav-item">
                         <router-link class="nav-link" to="/log-in">login</router-link>
                     </li>
                 </ul>
