@@ -76,9 +76,8 @@
                     })
                     .then(data => {
                         localStorage.setItem('user_data', this.user);
-                        
-                        console.log('should trigger event bus');
                         eventBus.$emit('userSuccessAuth', this.user);
+                        this.$router.push('/');
                     });
             }
         }

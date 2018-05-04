@@ -54,7 +54,6 @@
         },
         created() {
             eventBus.$on('userSuccessAuth', (user) => {
-                console.log('event called');
                 this.login = user.username;
                 this.isLoggedIn = true;
             });
