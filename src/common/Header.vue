@@ -22,12 +22,19 @@
                 </ul>
 
                 <ul class="navbar-nav ml-auto">
+                    <template v-if="!isLoggedIn">
                     <li class="nav-item">
                         <router-link class="nav-link" to="/register">register</router-link>
                     </li>
                     <li class="nav-item">
                         <router-link class="nav-link" to="/log-in">login</router-link>
                     </li>
+                    </template>
+                    <template v-else>
+                        <li class="nav-item">
+                            <router-link class="nav-link" to="/">{{ login }}</router-link>
+                        </li>
+                    </template>
                 </ul>
                 
             </div>
@@ -36,6 +43,23 @@
     </nav>
 </template>
 
-<script></script>
+<script>
+    import {eventBus} from '../main';
+    export default {
+        data() {
+            return {
+                isLoggedIn: false,
+                login: ''
+            }
+        },
+        created() {
+            eventBus.$on('userSuccessAuth', (user) => {
+                console.log('event called');
+                this.login = user.username;
+                this.isLoggedIn = true;
+            });
+        }
+    }
+</script>
 
 <style></style>

@@ -7,6 +7,8 @@ import App from './App.vue'
 Vue.use(VueResource);
 Vue.use(VueRouter);
 
+export const eventBus = new Vue();
+
 const router = new VueRouter({
     routes,
     mode: 'history'
