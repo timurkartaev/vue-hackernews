@@ -32,7 +32,10 @@
                     </template>
                     <template v-else>
                         <li class="nav-item">
-                            <router-link class="nav-link" to="/">{{ login }}</router-link>
+                            <router-link class="nav-link" to="/">{{ username }}</router-link>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" @click.prevent="logout" class="nav-link">logout</a>
                         </li>
                     </template>
                 </ul>
@@ -48,15 +51,30 @@
     export default {
         data() {
             return {
-                isLoggedIn: false,
-                login: ''
+                username: ''
+            }
+        },
+
+        computed: {
+            isLoggedIn() {
+                return this.username
+            }
+        },
+        methods: {
+            logout() {
+                localStorage.removeItem('username');
+                this.username = ''
             }
         },
         created() {
             eventBus.$on('userSuccessAuth', (user) => {
-                this.login = user.username;
-                this.isLoggedIn = true;
+                this.username = user.username;
             });
+
+            const username = localStorage.getItem('username');
+            if ( username ) {
+                this.username = username;
+            }
         }
     }
 </script>

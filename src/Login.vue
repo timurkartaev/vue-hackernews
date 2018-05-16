@@ -33,7 +33,14 @@
         },
         methods: {
             logUserIn() {
-                this.$http.post('https://firestore.googleapis.com/v1beta1/projects/vuejs-http-3fb13/databases/(default)/documents/users/', this.user)
+                let data = {
+                    orderBy: '$key',
+                    equalTo: this.user.email
+                }
+                console.log('Email ' + this.user.email);
+                this.$http.get('https://vuejs-http-3fb13.firebaseio.com/users.json', {
+                    params: data,
+                    emulateHTTP: true})
                     .then(response => {
                         console.log(response);
                     }, error => {

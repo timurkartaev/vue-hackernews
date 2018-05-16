@@ -75,7 +75,8 @@
                         console.log(error);
                     })
                     .then(data => {
-                        localStorage.setItem('user_data', this.user);
+                        console.log(this.user);
+                        localStorage.setItem('username', this.user.username);
                         eventBus.$emit('userSuccessAuth', this.user);
                         this.$router.push('/');
                     });
